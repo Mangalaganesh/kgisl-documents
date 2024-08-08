@@ -1,0 +1,272 @@
+
+
+for(int i=0;i<riskDetails.igIntList.size();i++){
+
+	if( ((IgInterest)riskDetails.igIntList.get(i)).noOfIns <=0 ||  ((IgInterest)riskDetails.igIntList.get(i)).noOfIns != ((IgInterest)riskDetails.igIntList.get(i)).igList.size() || ((IgInterest)riskDetails.igIntList.get(i)).noOfMonths<=0 ){
+
+		errorCode = "ERR_0503";
+		canContinue=false;
+	}
+
+	if(canContinue){
+
+		for(int j=0;j<((IgInterest)riskDetails.igIntList.get(i)).igList.size();j++){
+
+		String insCodeTemp =  ((Ig)(((IgInterest)riskDetails.igIntList.get(i)).igList.get(j))).insCode;
+
+			if(((Ig)(((IgInterest)riskDetails.igIntList.get(i)).igList.get(j))).insCode == null || ((Ig)(((IgInterest)riskDetails.igIntList.get(i)).igList.get(j))).insCode.equals("") ||
+
+			((Ig)(((IgInterest)riskDetails.igIntList.get(i)).igList.get(j))).natCode == null || ((Ig)(((IgInterest)riskDetails.igIntList.get(i)).igList.get(j))).natCode.equals("")){
+
+				errorCode = "ERR_0503";
+
+		canContinue=false;
+
+			}
+		}
+	}
+}
+
+==================================================================================
+
+	if(canContinue){
+
+		for(int j=0;j<((IgInterest)riskDetails.igIntList.get(i)).igList.size();j++){
+
+			String insCodeTemp =  ((Ig)(((IgInterest)riskDetails.igIntList.get(i)).igList.get(j))).insCode;
+
+			if(((Ig)(((IgInterest)riskDetails.igIntList.get(i)).igList.get(j))).insCode == null || ((Ig)(((IgInterest)riskDetails.igIntList.get(i)).igList.get(j))).insCode.equals("") ||
+
+			((Ig)(((IgInterest)riskDetails.igIntList.get(i)).igList.get(j))).natCode == null || 			((Ig)(((IgInterest)riskDetails.igIntList.get(i)).igList.get(j))).natCode.equals("")){
+
+				errorCode = "ERR_0503";
+		canContinue=false;
+
+			}
+
+		}
+	}
+
+}
+=============================================================================
+
+
+   pcwDetailsReq = (PcwDetailsRequest)currentIntDetail.pcwDetails.get(curPcwIndex);
+    pcwCode =   pcwDetailsReq. pcwCode;
+    pcwInd =    pcwDetailsReq. pcwInd;
+    perilInd =  pcwDetailsReq. perilInd;
+    pSumCovered =  contribution.roundValue(pcwDetailsReq. pSumCovered,2);
+    pcwRate =(Double)pcwDetailsReq.pcwRate;
+	
+	
+	
+	
+	if(riskTypeList.riskReason != null){
+	
+	
+	
+	
+	if(stringList!=null){
+if(stringList.contains("Y")) {
+	canContinue=true;
+}
+
+else {
+	canContinue=false;
+	errorCode="ERR_0305";
+}
+}
+
+
+ stringList = new ArrayList();
+ stringList.clear();
+ 
+ 
+ 
+ pcwContriLocal
+ 
+ locDetailsRes.locContri=locDetailsRes.locContri+pcwContri;
+ ====================================================================================
+ 
+fire & Lightening Validation
+===================================
+
+ ArrayList  stringList = new ArrayList();
+
+for(int i=0; i<currentLocReq.intDetails.size();i++){
+
+IntDetailRequest current =new IntDetailRequest();
+
+   current = (IntDetailRequest)currentLocReq.intDetails.get(i);
+
+    
+   stringList.clear();		
+
+
+
+	 for(int j=0;j<current.pcwDetails.size();j++){
+
+
+
+	 if(canContinue){
+
+	 
+
+	    String temppcwCode = ((PcwDetailsRequest)current.pcwDetails.get(j)).pcwCode;
+
+		
+
+
+
+		 stringList.add(temppcwCode);
+
+
+
+	 }
+
+
+
+	 }
+
+	 
+
+	 if(stringList.contains("PC01")){
+
+	 
+
+	       canContinue=true;
+
+	 }else{
+
+	     canContinue=false;
+
+	     errorCode="ERR_0305";
+
+	 }
+
+}
+=====================================================================
+
+
+premium summary:
+=====================
+
+
+set GrossPremiumOutput to ReverseGrossPremiumOutput ;
+
+    set TotalPremiumBeforTaxResult to rounding utils.roundToDecimalPlaces ( ReverseGrossPremiumOutput , 0 ) ;
+
+    set StampDutyOutput to ReverseStampDutyOutput ;
+
+    set PremiumBeforeVatOutput to ReversePremiumBeforeVatOutput ;
+
+    set VatAmountOutput to ReverseVatAmountOutput ;
+	=====================================================================================
+	
+	
+
+policyPoc = UtilDate.differenceBetweenTwoDates(EffectiveDate, ExpiryDate) - 1;
+
+yearDays = UtilDate.totalDaysInYear(ExpiryDate);
+
+if(policyPoc>90){
+
+BasePremium = BaseRateResult * (policyPoc/yearDays);
+
+StampDutyOutput =Utils.roundMax(BasePremium * (StampDuty / 100));
+
+VatAmountOutput = (BasePremium + StampDutyOutput) * ( Vat / 100);
+
+TotalPremiumOutput = BasePremium + StampDutyOutput + VatAmountOutput;
+
+}
+================================================================================
+
+ ArrayList  stringList = new ArrayList();
+
+for(int i=0; i<currentLocReq.intDetails.size();i++){
+
+IntDetailRequest current =new IntDetailRequest();
+
+   current = (IntDetailRequest)currentLocReq.intDetails.get(i);
+
+   stringList.clear();		
+
+	 for(int j=0;j<current.pcwDetails.size();j++){
+
+	 if(canContinue){
+
+	    String temppcwCode = ((PcwDetailsRequest)current.pcwDetails.get(j)).pcwCode;
+		 stringList.add(temppcwCode);
+
+	 }
+
+	 }
+
+	 if(stringList.contains("PC01")){
+
+	       canContinue=true;
+
+	 }else{
+
+	     canContinue=false;
+
+	     errorCode="ERR_0305";
+
+	 }
+
+}
+==========================================================================================
+
+for(int i=0; i<currentLocReq.riskIntList.size();i++){
+
+	 String currentElement = ((RiskInterest)currentLocReq.riskIntList.get(i)).riskCode;
+
+	 for(int j=i+1;j<currentLocReq.riskIntList.size();j++){
+
+	 if(currentElement.equals(((RiskInterest)currentLocReq.riskIntList.get(j)).riskCode)){
+
+	      canContinue=false;
+
+	      errorCode="ERR_0502";
+
+	 }
+
+	 }
+
+}
+
+==============================================================================================
+for(int i=0; i<currentLocReq.intDetails.size();i++){
+
+IntDetailRequest current =new IntDetailRequest();
+
+   current = (IntDetailRequest)currentLocReq.intDetails.get(i);
+
+   		 ArrayList  stringList = new ArrayList();
+
+	 for(int j=i+1;j<current.pcwDetails.size();j++){
+
+	 if(canContinue){
+
+	    String temppcwCode = ((PcwDetailsRequest)current.pcwDetails.get(j)).pcwCode;
+
+		 stringList.add(temppcwCode);
+
+	 }
+
+	 }
+
+	 if(stringList.contains("PC01")){
+
+	       canContinue=true;
+
+	 }else{
+
+	     canContinue=false;
+
+	     errorCode="ERR_0305";
+
+	 }
+
+}

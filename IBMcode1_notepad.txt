@@ -1,0 +1,226 @@
+
+
+sRatePct  = contribution.roundValue(currentIntDetail.sRatePct,5);
+
+intDetailsRes.sContri = contribution.roundValue(( sSumCovered * sRatePct / 100 ) * ( policyPoc / yearDays ),2) ;
+locDetailsRes.locContri =contribution.roundValue( locDetailsRes.locContri + intDetailsRes.sContri,2);
+intDetailsRes.sRatePct = sRatePct;
+//intDetailsRes.secCode = secCode;
+
+
+
+
+(secCode != null) && 
+
+(((secCode.equals("S1"))  &&  (sRatePct >=  s1minRate && sRatePct <= s1maxRate )) || ((secCode.equals("S2")) && 
+(sRatePct >= s2minRate && sRatePct <= s2maxRate )))
+
+
+
+(pcwRate >= pcwMinRate && pcwRate <=pcwMaxRate)
+
+((pcwCode !=null) && (pcwCode.equals("PCW28") || pcwCode.equals("PCW29") || pcwCode.equals("PCW30")))
+
+
+========================================================
+
+if(totNoHectares ==0 && noOfHectares ==0 && treeAge ==0 && pSumCovered ==0){
+	
+	canContinue=false;
+
+errorCode= "ERR_0304";
+}
+
+
+pSumCovered =  contribution.roundValue(pcwDetailsReq. pSumCovered,2);
+
+
+========================================
+
+if((!(mainClsCode.equals("MH")) && !(mainClsCode.equals("MS")) && !(mainClsCode.equals("PA")) && !(mainClsCode.equals("MT")) && !(mainClsCode.equals("FR"))) && totSumCovered<=0 && (errorCode == null || errorCode.equals(""))){
+	
+	errorCode = "ERR_9011";
+
+}
+
+
+
+(productType.equals("ANNUAL"))
+
+
+
+else if((productType.equals("ANNUAL")) && ftrInd != null && ftrInd.equals("N")){
+ errorCode="ERR_9020";
+  canContinue=false;
+}
+
+
+locDetailsRes.totSumVal
+=============================================================================================
+
+((RiskInterest)riskDetails.riskIntList.get(i)).locSumCovered <=0 || 
+
+============================================================================
+
+for(int i=0; i<location.locDetails.size();i++){
+
+if(location.locDetails.get(i).locSumCovered<=0){
+
+canContinue=false;
+
+errorCode= "ERR_0504";
+}
+
+}
+
+
+
+
+
+
+
+//C-MANDATORY VALIDATION
+
+for(int i=0; i<currentLocReq.riskIntList.size();i++){
+
+if(  ((RiskInterest)currentLocReq.riskIntList.get(i)).riskCode == null ||  ((RiskInterest)currentLocReq.riskIntList.get(i)).riskCode.equals("") || 
+
+((RiskInterest)currentLocReq.riskIntList.get(i)).occCode == null || ((RiskInterest)currentLocReq.riskIntList.get(i)).occCode.equals("") || 
+
+((RiskInterest)currentLocReq.riskIntList.get(i)).consClsCode== null || ((RiskInterest)currentLocReq.riskIntList.get(i)).consClsCode.equals("") ){
+
+canContinue=false;
+
+errorCode= "ERR_0504";
+
+}
+
+
+if(canContinue){
+
+for(int j=0;j<((RiskInterest)currentLocReq.riskIntList.get(i)).intList.size();j++){
+
+Interest inter = (Interest)(((RiskInterest)currentLocReq.riskIntList.get(i)).intList.get(j));
+
+	
+	if( inter.sItemCode == null || inter.sItemCode.equals("") 
+
+	|| inter.sSumCovered<=0 || inter.sNoOfItem<=0 ){
+
+		canContinue=false;
+
+errorCode = "ERR_0504";
+
+	}
+
+}
+
+}
+
+}
+
+===================================================================================================================================
+
+
+
+
+
+
+
+
+
+//duplicate risk code validation
+if(canContinue){
+for(int i=0; i<currentLocReq.riskIntList.size();i++){
+
+	 String currentElement = ((RiskInterest)currentLocReq.riskIntList.get(i)).riskCode;
+
+	 for(int j=i+1;j<currentLocReq.riskIntList.size();j++){
+
+	 if(currentElement.equals(((RiskInterest)currentLocReq.riskIntList.get(j)).riskCode)){
+
+	      canContinue=false;
+
+	      errorCode="ERR_0502";
+
+	 }
+
+	 }
+
+}
+}
+========================================================================================================
+
+
+original:
+==========
+
+
+//C-MANDATORY VALIDATION
+
+for(int i=0; i<currentLocReq.riskIntList.size();i++){
+
+
+
+if(  ((RiskInterest)currentLocReq.riskIntList.get(i)).riskCode == null ||  ((RiskInterest)currentLocReq.riskIntList.get(i)).riskCode.equals("") || 
+
+((RiskInterest)currentLocReq.riskIntList.get(i)).occCode == null || ((RiskInterest)currentLocReq.riskIntList.get(i)).occCode.equals("") || 
+
+
+((RiskInterest)currentLocReq.riskIntList.get(i)).consClsCode== null || ((RiskInterest)currentLocReq.riskIntList.get(i)).consClsCode.equals("") ){
+
+	
+
+canContinue=false;
+
+errorCode= "ERR_0504";
+
+
+
+}
+
+if(canContinue){
+
+for(int j=0;j<((RiskInterest)currentLocReq.riskIntList.get(i)).intList.size();j++){
+
+Interest inter = (Interest)(((RiskInterest)currentLocReq.riskIntList.get(i)).intList.get(j));
+
+	
+
+	if( inter.sItemCode == null || inter.sItemCode.equals("") 
+
+	|| inter.sSumCovered<=0 || inter.sNoOfItem<=0 ){
+
+		canContinue=false;
+
+errorCode = "ERR_0504";
+
+	}
+
+}
+
+}
+
+}
+
+//duplicate risk code validation
+if(canContinue){
+for(int i=0; i<currentLocReq.riskIntList.size();i++){
+
+	 String currentElement = ((RiskInterest)currentLocReq.riskIntList.get(i)).riskCode;
+
+	 for(int j=i+1;j<currentLocReq.riskIntList.size();j++){
+
+	 if(currentElement.equals(((RiskInterest)currentLocReq.riskIntList.get(j)).riskCode)){
+
+	      canContinue=false;
+
+	      errorCode="ERR_0502";
+
+	 }
+
+	 }
+
+}
+}
+
